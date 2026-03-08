@@ -7,21 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* =========================================================
-           1. KHU VỰC CÀI ĐẶT CHUNG (SỬA MÀU SẮC, FONT CHỮ Ở ĐÂY)
-           ========================================================= */
         :root {
-            --primary-color: #2c3e50; /* Màu nhấn cho Tiêu đề (Đỏ/Xanh/Đen tùy ý) */
-            --text-color: #333333; /* Màu chữ nội dung */
-            --bg-color: #ffffff; /* Màu nền */
-            --font-main: 'Inter', sans-serif; /* Font chữ chính */
-            --font-size-base: 11pt; /* Cỡ chữ cơ bản */
-            --line-height: 1.5; /* Khoảng cách dòng */
+            --primary-color: #2c3e50;
+            --text-color: #333333;
+            --bg-color: #ffffff;
+            --font-main: 'Inter', sans-serif;
+            --font-size-base: 11pt;
+            --line-height: 1.5;
         }
 
-        /* =========================================================
-           2. CSS ĐỊNH DẠNG CƠ BẢN
-           ========================================================= */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -31,7 +25,7 @@
         body {
             font-family: var(--font-main);
             color: var(--text-color);
-            background-color: #f0f2f5; /* Nền xám khi xem trên web */
+            background-color: #f0f2f5;
             font-size: var(--font-size-base);
             line-height: var(--line-height);
             display: flex;
@@ -47,20 +41,15 @@
             text-decoration: underline;
         }
 
-        /* Khung giấy A4 giả lập trên Web */
         .cv-container {
-            width: 210mm; /* Chiều rộng A4 */
-            min-height: 297mm; /* Chiều cao A4 */
+            width: 210mm;
+            min-height: 297mm;
             background: var(--bg-color);
-            padding: 20mm 15mm; /* Căn lề: trên/dưới 20mm, trái/phải 15mm */
+            padding: 20mm 15mm;
             margin: 20px 0;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho đẹp */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* =========================================================
-           3. ĐỊNH DẠNG CÁC THÀNH PHẦN CHI TIẾT
-           ========================================================= */
-        /* Phần Header (Tên & Thông tin liên hệ) */
         header {
             text-align: center;
             border-bottom: 2px solid var(--primary-color);
@@ -91,7 +80,6 @@
             flex-wrap: wrap;
         }
 
-        /* Phần Tiêu đề các mục (Summary, Experience...) */
         section {
             margin-bottom: 20px;
         }
@@ -105,7 +93,6 @@
             margin-bottom: 10px;
         }
 
-        /* Định dạng các Item (Kinh nghiệm, Học vấn) */
         .item {
             margin-bottom: 15px;
         }
@@ -141,26 +128,29 @@
             text-align: justify;
         }
 
-        /* =========================================================
-           4. CSS TỐI ƯU KHI IN RA PDF (Bấm Ctrl + P)
-           ========================================================= */
         @media print {
+            @page {
+                size: A4;
+                margin: 15mm 15mm 15mm 15mm; /* Force padding 15mm */
+            }
             body {
                 background-color: transparent;
+                margin: 0; /* let @page manipulate */
             }
             .cv-container {
                 margin: 0;
-                padding: 0; /* Bỏ padding web để trình duyệt tự căn lề in */
+                padding: 0; /* already has @page */
                 box-shadow: none;
                 width: 100%;
                 min-height: auto;
             }
-            /* Đảm bảo trang không bị cắt ngang ở giữa 1 job */
             .item {
                 page-break-inside: avoid;
+                margin-bottom: 10px; /* hardcode fixing */
             }
             h2.section-title {
                 page-break-after: avoid;
+                margin-top: 15px;
             }
         }
     </style>
