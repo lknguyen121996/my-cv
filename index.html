@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyen Kim Long - Senior Software Engineer CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================================
+           1. KHU VỰC CÀI ĐẶT CHUNG (SỬA MÀU SẮC, FONT CHỮ Ở ĐÂY)
+           ========================================================= */
+        :root {
+            --primary-color: #2c3e50; /* Màu nhấn cho Tiêu đề (Đỏ/Xanh/Đen tùy ý) */
+            --text-color: #333333; /* Màu chữ nội dung */
+            --bg-color: #ffffff; /* Màu nền */
+            --font-main: 'Inter', sans-serif; /* Font chữ chính */
+            --font-size-base: 11pt; /* Cỡ chữ cơ bản */
+            --line-height: 1.5; /* Khoảng cách dòng */
+        }
+
+        /* =========================================================
+           2. CSS ĐỊNH DẠNG CƠ BẢN
+           ========================================================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-color);
+            background-color: #f0f2f5; /* Nền xám khi xem trên web */
+            font-size: var(--font-size-base);
+            line-height: var(--line-height);
+            display: flex;
+            justify-content: center;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Khung giấy A4 giả lập trên Web */
+        .cv-container {
+            width: 210mm; /* Chiều rộng A4 */
+            min-height: 297mm; /* Chiều cao A4 */
+            background: var(--bg-color);
+            padding: 20mm 15mm; /* Căn lề: trên/dưới 20mm, trái/phải 15mm */
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho đẹp */
+        }
+
+        /* =========================================================
+           3. ĐỊNH DẠNG CÁC THÀNH PHẦN CHI TIẾT
+           ========================================================= */
+        /* Phần Header (Tên & Thông tin liên hệ) */
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 24pt;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        header .title {
+            font-size: 14pt;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        header .contact-info {
+            font-size: 10.5pt;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Phần Tiêu đề các mục (Summary, Experience...) */
+        section {
+            margin-bottom: 20px;
+        }
+
+        h2.section-title {
+            font-size: 13pt;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Định dạng các Item (Kinh nghiệm, Học vấn) */
+        .item {
+            margin-bottom: 15px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 11.5pt;
+        }
+
+        .item-subtitle {
+            font-style: italic;
+            color: #555;
+        }
+
+        .item-date {
+            font-weight: 600;
+            font-size: 10.5pt;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+            text-align: justify;
+        }
+
+        /* =========================================================
+           4. CSS TỐI ƯU KHI IN RA PDF (Bấm Ctrl + P)
+           ========================================================= */
+        @media print {
+            body {
+                background-color: transparent;
+            }
+            .cv-container {
+                margin: 0;
+                padding: 0; /* Bỏ padding web để trình duyệt tự căn lề in */
+                box-shadow: none;
+                width: 100%;
+                min-height: auto;
+            }
+            /* Đảm bảo trang không bị cắt ngang ở giữa 1 job */
+            .item {
+                page-break-inside: avoid;
+            }
+            h2.section-title {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        
+        <header>
+            <h1>Nguyen Kim Long</h1>
+            <div class="title">Senior Software Engineer | GCP Professional Cloud Architect</div>
+            <div class="contact-info">
+                <span>📍 Ho Chi Minh City</span>
+                <span>📞 <strong>0906992547</strong></span>
+                <span>📧 <a href="mailto:lk.nguyen121996@gmail.com">lk.nguyen121996@gmail.com</a></span>
+                <span>🔗 <a href="https://www.linkedin.com/in/nguyen-kim-long-917857190/" target="_blank">LinkedIn Profile</a></span>
+            </div>
+        </header>
+
+        <section class="summary">
+            <h2 class="section-title">Professional Summary</h2>
+            <p>Highly motivated and results-oriented Senior Software Engineer with over <strong>6 years of experience</strong> specializing in <strong>Golang</strong> and <strong>Google Cloud Platform (GCP)</strong>. Proven expertise in designing Microservices architectures, optimizing Fintech workflows, and building large-scale data pipelines. Demonstrated a strong commitment to delivering high-quality, business-driven solutions, notably reducing the home loan processing time for ANZ from <strong>4 weeks to 4 days</strong>.</p>
+        </section>
+
+        <section class="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <ul>
+                <li><strong>Languages:</strong> Golang, Python.</li>
+                <li><strong>Cloud & DevOps:</strong> GCP (Certified Professional Cloud Architect), AWS, Kubernetes (K8s), Docker, Terraform, GitHub Actions, CI/CD.</li>
+                <li><strong>Databases:</strong> Cloud Spanner, BigQuery, ClickHouse, MySQL, PostgreSQL, Redis, InfluxDB.</li>
+                <li><strong>Technologies & Architecture:</strong> Temporal, Kafka, RESTful API, FastAPI, gRPC, Protobuf, XSD, Microservices.</li>
+            </ul>
+        </section>
+
+        <section class="experience">
+            <h2 class="section-title">Professional Experience</h2>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">HCL Technology - ANZ</div>
+                    <div class="item-date">04/2023 – 11/2025</div>
+                </div>
+                <div class="item-subtitle">Senior Software Engineer</div>
+                <ul>
+                    <li><strong>Home Loan Optimization:</strong> Designed and developed core services that successfully reduced the loan application processing time from <strong>4 weeks to 4 days</strong>, significantly improving customer experience based on ANZ's feedback.</li>
+                    <li><strong>System Architecture:</strong> Developed an XML payload validation library following the LIXI standard. Utilized XSD schemas to auto-generate Golang and Protobuf messages for streamlined third-party integrations.</li>
+                    <li><strong>Data Engineering:</strong> Implemented an ELT pipeline to aggregate data into Google Cloud BigQuery and a reverse ETL process to transfer data to Cloud Spanner, ensuring data integrity through comprehensive unit and integration testing.</li>
+                    <li><strong>Operations (DevOps):</strong> Set up and maintained a CI/CD pipeline for automated production data changes in strict compliance with ITIL standards.</li>
+                    <li><strong>Leadership & Mentorship:</strong> Actively participated in knowledge sharing and mentoring for colleagues, and served as a technical interviewer during the company's recruitment process.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Tiki Corporation</div>
+                    <div class="item-date">02/2022 – 04/2023</div>
+                </div>
+                <div class="item-subtitle">Associate Software Developer</div>
+                <ul>
+                    <li><strong>Affiliate Platform (Tially):</strong> Developed and maintained an affiliate marketing platform integrated directly into product pages. Engineered the system to handle over <strong>1,000 CCU</strong> during Peak Sale events, generating <strong>300 million VND</strong> in monthly revenue.</li>
+                    <li><strong>Brand Portal:</strong> Created a marketing platform for booking ads on e-commerce sites. Implemented a user-friendly account-sharing feature that enhanced user experience and increased conversion rates.</li>
+                    <li><strong>Tech Stack:</strong> Golang (Chi framework), ClickHouse, Kafka, MySQL.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Nashtech</div>
+                    <div class="item-date">07/2021 – 02/2022</div>
+                </div>
+                <div class="item-subtitle">Software Developer</div>
+                <ul>
+                    <li><strong>RFID Tracking Platform:</strong> Successfully delivered "ParagonID", a complex tracking platform capable of monitoring thousands of devices simultaneously in real-time.</li>
+                    <li><strong>Client Collaboration:</strong> Worked closely with clients from requirements gathering to implementation, ensuring reliable and scalable solutions using Python and Django.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">LinkByNet</div>
+                    <div class="item-date">12/2019 – 07/2021</div>
+                </div>
+                <div class="item-subtitle">Python Developer - Backend Developer</div>
+                <ul>
+                    <li><strong>Project Maintenance & Upgrades:</strong> Maintained and updated company projects (GORO, SSC-Tower) to ensure optimal performance, conducting regular unit tests and code refactoring.</li>
+                    <li><strong>API Development:</strong> Developed scalable web servers to serve RESTful APIs efficiently using Python and FastAPI.</li>
+                    <li><strong>DevOps & Infrastructure:</strong> Shared valuable knowledge within the team and implemented CI/CD and DevOps practices, utilizing AWS and GCP to improve deployment workflows.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="education">
+            <h2 class="section-title">Education & Certifications</h2>
+            <ul>
+                <li><strong>GCP Professional Cloud Architect</strong> – Google Cloud (<strong>2024</strong>).</li>
+                <li><strong>C1 Advanced (English)</strong> – EF SET Certificate (Score: <strong>64/100</strong>) (<strong>2024</strong>).</li>
+                <li><strong>Bachelor of Software Engineering</strong> – University of Information Technology (VNU-HCM).</li>
+                <li><strong>Second Prize, FPT Education Hackathon</strong> (<strong>2018</strong>).</li>
+            </ul>
+        </section>
+
+    </div>
+
+</body>
+</html>
