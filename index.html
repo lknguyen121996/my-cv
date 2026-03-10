@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyen Kim Long - Senior Software Engineer CV</title>
+    <title>Nguyen Kim Long - Software Engineer CV</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -12,8 +12,8 @@
             --text-color: #333333;
             --bg-color: #ffffff;
             --font-main: 'Inter', sans-serif;
-            --font-size-base: 11pt;
-            --line-height: 1.5;
+            --font-size-base: 10.5pt;
+            --line-height: 1.45;
         }
 
         * {
@@ -43,22 +43,22 @@
 
         .cv-container {
             width: 210mm;
-            min-height: 297mm;
+            max-width: 100%;
             background: var(--bg-color);
-            padding: 20mm 15mm;
-            margin: 20px 0;
+            padding: 15mm 15mm;
+            margin: 20px auto;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         header {
             text-align: center;
             border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         header h1 {
-            font-size: 24pt;
+            font-size: 22pt;
             color: var(--primary-color);
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -66,14 +66,14 @@
         }
 
         header .title {
-            font-size: 14pt;
+            font-size: 13pt;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: #555;
         }
 
         header .contact-info {
-            font-size: 10.5pt;
+            font-size: 10pt;
             display: flex;
             justify-content: center;
             gap: 15px;
@@ -81,42 +81,49 @@
         }
 
         section {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         h2.section-title {
-            font-size: 13pt;
+            font-size: 12pt;
             color: var(--primary-color);
             text-transform: uppercase;
             border-bottom: 1px solid #ccc;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+            margin-top: 5px;
+            page-break-after: avoid;
+            break-after: avoid;
         }
 
         .item {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            page-break-inside: avoid;
+            break-inside: avoid;
         }
 
         .item-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
 
         .item-title {
             font-weight: 700;
-            font-size: 11.5pt;
+            font-size: 11pt;
         }
 
         .item-subtitle {
             font-style: italic;
             color: #555;
+            margin-bottom: 3px;
+            font-size: 10pt;
         }
 
         .item-date {
             font-weight: 600;
-            font-size: 10.5pt;
+            font-size: 10pt;
         }
 
         ul {
@@ -124,33 +131,49 @@
         }
 
         ul li {
-            margin-bottom: 5px;
+            margin-bottom: 3px;
             text-align: justify;
         }
 
         @media print {
             @page {
                 size: A4;
-                margin: 15mm 15mm 15mm 15mm; /* Force padding 15mm */
+                margin: 15mm 15mm 15mm 15mm;
             }
             body {
-                background-color: transparent;
-                margin: 0; /* let @page manipulate */
+                background-color: #ffffff;
+                margin: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
             .cv-container {
                 margin: 0;
-                padding: 0; /* already has @page */
+                padding: 0;
                 box-shadow: none;
                 width: 100%;
-                min-height: auto;
+                max-width: none;
             }
+            /* Tránh ngắt giữa các khối item lớn */
             .item {
                 page-break-inside: avoid;
-                margin-bottom: 10px; /* hardcode fixing */
+                margin-bottom: 12px;
             }
+            /* Giữ tiêu đề phần dính liền với nội dung bên dưới */
             h2.section-title {
                 page-break-after: avoid;
-                margin-top: 15px;
+                page-break-inside: avoid;
+            }
+            /* Headers */
+            header {
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+            /* Danh sách bullet */
+            ul {
+                page-break-inside: auto;
+            }
+            li {
+                page-break-inside: avoid;
             }
         }
     </style>
@@ -161,7 +184,7 @@
         
         <header>
             <h1>Nguyen Kim Long</h1>
-            <div class="title">Senior Software Engineer | GCP Professional Cloud Architect</div>
+            <div class="title">Software engineer | GCP Professional Cloud Architect</div>
             <div class="contact-info">
                 <span>📍 Ho Chi Minh City</span>
                 <span>📞 <strong>0906992547</strong></span>
@@ -178,10 +201,11 @@
         <section class="skills">
             <h2 class="section-title">Technical Skills</h2>
             <ul>
-                <li><strong>Languages:</strong> Golang, Python.</li>
-                <li><strong>Cloud & DevOps:</strong> GCP (Certified Professional Cloud Architect), AWS, Kubernetes (K8s), Docker, Terraform, GitHub Actions, CI/CD.</li>
-                <li><strong>Databases:</strong> Cloud Spanner, BigQuery, ClickHouse, MySQL, PostgreSQL, Redis, InfluxDB.</li>
-                <li><strong>Technologies & Architecture:</strong> Temporal, Kafka, RESTful API, FastAPI, gRPC, Protobuf, XSD, Microservices.</li>
+                <li><strong>Languages:</strong> Golang, Python</li>
+                <li><strong>Cloud:</strong> GCP, AWS</li>
+                <li><strong>Infrastructure/DevOps:</strong> Kubernetes (K8s), Docker, Terraform, GitHub Actions, CI/CD</li>
+                <li><strong>Databases:</strong> Cloud Spanner, BigQuery, ClickHouse, MySQL, PostgreSQL, Redis, InfluxDB</li>
+                <li><strong>Technologies & Architecture:</strong> Temporal, Kafka, RESTful API, FastAPI, Django REST framework, gRPC, Protobuf, XSD, Microservices, Chi framework, Gorm</li>
             </ul>
         </section>
 
@@ -193,13 +217,15 @@
                     <div class="item-title">HCL Technology - ANZ</div>
                     <div class="item-date">04/2023 – 11/2025</div>
                 </div>
-                <div class="item-subtitle">Senior Software Engineer</div>
+                <div class="item-subtitle">Senior software engineer</div>
                 <ul>
-                    <li><strong>Home Loan Optimization:</strong> Designed and developed core services that successfully reduced the loan application processing time from <strong>4 weeks to 4 days</strong>, significantly improving customer experience based on ANZ's feedback.</li>
-                    <li><strong>System Architecture:</strong> Developed an XML payload validation library following the LIXI standard. Utilized XSD schemas to auto-generate Golang and Protobuf messages for streamlined third-party integrations.</li>
+                    <li><strong>Home Loan Optimization:</strong> Designed and developed core services (Broker Mediation, Loan Service, Gearbox, Settlement) for the Buy Own Home platform, successfully reducing loan processing time from <strong>4 weeks to 4 days</strong>.</li>
+                    <li><strong>System Architecture:</strong> Developed an XML payload validation library following the LIXI standard. Utilized XSD schemas to auto-generate Golang and Protobuf messages, streamlining third-party integrations.</li>
+                    <li><strong>Third-party Integration:</strong> Validated and integrated third-party applications using a process management platform to accelerate loan application processing.</li>
                     <li><strong>Data Engineering:</strong> Implemented an ELT pipeline to aggregate data into Google Cloud BigQuery and a reverse ETL process to transfer data to Cloud Spanner, ensuring data integrity through comprehensive unit and integration testing.</li>
                     <li><strong>Operations (DevOps):</strong> Set up and maintained a CI/CD pipeline for automated production data changes in strict compliance with ITIL standards.</li>
-                    <li><strong>Leadership & Mentorship:</strong> Actively participated in knowledge sharing and mentoring for colleagues, and served as a technical interviewer during the company's recruitment process.</li>
+                    <li><strong>Projects:</strong> Broker mediation service, Loan service, Gearbox, Settlement (Team size: 6)</li>
+                    <li><strong>Technologies:</strong> Golang, Temporal, GCP, Kubernetes (K8s), GitHub Actions, Cloud Storage</li>
                 </ul>
             </div>
 
@@ -210,9 +236,10 @@
                 </div>
                 <div class="item-subtitle">Associate Software Developer</div>
                 <ul>
-                    <li><strong>Affiliate Platform (Tially):</strong> Developed and maintained an affiliate marketing platform integrated directly into product pages. Engineered the system to handle over <strong>1,000 CCU</strong> during Peak Sale events, generating <strong>300 million VND</strong> in monthly revenue.</li>
-                    <li><strong>Brand Portal:</strong> Created a marketing platform for booking ads on e-commerce sites. Implemented a user-friendly account-sharing feature that enhanced user experience and increased conversion rates.</li>
-                    <li><strong>Tech Stack:</strong> Golang (Chi framework), ClickHouse, Kafka, MySQL.</li>
+                    <li><strong>Affiliate Platform (Tially):</strong> Developed and maintained an affiliate marketing platform integrated directly into product pages, generating over <strong>300 million VND</strong> in monthly revenue.</li>
+                    <li><strong>Brand Portal (Marketing Booking):</strong> Engineered a marketing platform for booking ads on e-commerce sites. Implemented a user-friendly account-sharing feature that significantly enhanced user experience and increased revenue.</li>
+                    <li><strong>Projects:</strong> Brand Portal (Marketing booking platform), Tially (Affiliate platform) (Team size: 8)</li>
+                    <li><strong>Technologies:</strong> Golang, Chi framework, RESTful API, ClickHouse, Kafka, MySQL, Gorm, GCP</li>
                 </ul>
             </div>
 
@@ -223,8 +250,11 @@
                 </div>
                 <div class="item-subtitle">Software Developer</div>
                 <ul>
-                    <li><strong>RFID Tracking Platform:</strong> Successfully delivered "ParagonID", a complex tracking platform capable of monitoring thousands of devices simultaneously in real-time.</li>
-                    <li><strong>Client Collaboration:</strong> Worked closely with clients from requirements gathering to implementation, ensuring reliable and scalable solutions using Python and Django.</li>
+                    <li><strong>RFID Tracking Platform (ParagonID):</strong> Architected and successfully delivered a complex tracking platform capable of monitoring thousands of devices simultaneously in real-time.</li>
+                    <li><strong>Client Collaboration:</strong> Collaborated closely with clients throughout the software development lifecycle, from requirements gathering to implementation, ensuring solutions met business constraints.</li>
+                    <li><strong>Quality Assurance:</strong> Conducted comprehensive unit testing and quality assurance to ensure the platform was highly functional, efficient, and scalable.</li>
+                    <li><strong>Projects:</strong> ParagonID (Team size: 8)</li>
+                    <li><strong>Technologies:</strong> Python, Django REST framework, RESTful API, PostgreSQL, InfluxDB, Redis, AWS</li>
                 </ul>
             </div>
 
@@ -235,21 +265,45 @@
                 </div>
                 <div class="item-subtitle">Python Developer - Backend Developer</div>
                 <ul>
-                    <li><strong>Project Maintenance & Upgrades:</strong> Maintained and updated company projects (GORO, SSC-Tower) to ensure optimal performance, conducting regular unit tests and code refactoring.</li>
-                    <li><strong>API Development:</strong> Developed scalable web servers to serve RESTful APIs efficiently using Python and FastAPI.</li>
-                    <li><strong>DevOps & Infrastructure:</strong> Shared valuable knowledge within the team and implemented CI/CD and DevOps practices, utilizing AWS and GCP to improve deployment workflows.</li>
+                    <li><strong>Project Maintenance & Upgrades:</strong> Maintained and updated key company projects (GORO, SSC-Tower) to ensure optimal performance, conducting regular unit testing, code refactoring, and feature implementation.</li>
+                    <li><strong>API Development:</strong> Designed and developed scalable web servers to serve RESTful APIs efficiently using Python and FastAPI.</li>
+                    <li><strong>DevOps & Infrastructure:</strong> Implemented CI/CD pipelines and DevOps practices, utilizing AWS and GCP to streamline deployment workflows and improve system reliability.</li>
+                    <li><strong>Collaboration & Mentorship:</strong> Designed effective code structures, collaborated cross-functionally, and actively shared technical knowledge within the development team.</li>
+                    <li><strong>Projects:</strong> GORO, SSC-Tower (Team size: 4)</li>
+                    <li><strong>Technologies:</strong> Python, FastAPI, RESTful API, PostgreSQL, Redis, AWS, GCP</li>
                 </ul>
             </div>
         </section>
 
         <section class="education">
-            <h2 class="section-title">Education & Certifications</h2>
+            <h2 class="section-title">Certifications</h2>
             <ul>
-                <li><strong>GCP Professional Cloud Architect</strong> – Google Cloud (<strong>2024</strong>).</li>
-                <li><strong>C1 Advanced (English)</strong> – EF SET Certificate (Score: <strong>64/100</strong>) (<strong>2024</strong>).</li>
-                <li><strong>Bachelor of Software Engineering</strong> – University of Information Technology (VNU-HCM).</li>
-                <li><strong>Second Prize, FPT Education Hackathon</strong> (<strong>2018</strong>).</li>
+                <li><strong>Professional Cloud Architect (GCP)</strong> (<strong>2024</strong>)</li>
+                <li><strong>EF SET English Certificate 64/100 (C1 Advanced)</strong> (<strong>2024</strong>)</li>
             </ul>
+        </section>
+
+        <section class="education">
+            <h2 class="section-title">Honors & Awards</h2>
+            <ul>
+                <li><strong>Second prize of FPT Education Hackathon</strong> (<strong>2018</strong>)</li>
+                <li><strong>Great student award straight 5 semesters</strong> (<strong>2018-2019</strong>)</li>
+            </ul>
+        </section>
+
+        <section class="education">
+            <h2 class="section-title">Education</h2>
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">University of Information Technology - VNUHCM</div>
+                    <div class="item-date">Dec 2021 - Dec 2023</div>
+                </div>
+                <div class="item-subtitle">Bachelor degree</div>
+                <ul>
+                    <li><strong>Major:</strong> Software Engineer</li>
+                    <li><strong>GPA:</strong> 7.9</li>
+                </ul>
+            </div>
         </section>
 
     </div>
